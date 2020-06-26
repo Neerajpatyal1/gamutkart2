@@ -28,7 +28,7 @@ pipeline {
 	stage('Deployment') {
 	    	steps {
 			print "Deployment is done!"
-			sh 'sshpass -p "root" scp target/gamutkart.war neeraj@172.17.0.6:/home/gamut/Distro/apache-tomcat-8.5.56/webapps'
+			sh 'sshpass -p "root" scp target/gamutgurus.war neeraj@172.17.0.6:/home/gamut/Distro/apache-tomcat-8.5.56/webapps'
 			sh 'sshpass -p "root" ssh neeraj@172.17.0.6 "JAVA_HOME=/home/gamut/Distro/jdk1.8.0_251" "/home/gamut/Distro/apache-tomcat-8.5.56/bin/startup.sh"'
 	    	}
 	}
