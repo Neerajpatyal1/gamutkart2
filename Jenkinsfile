@@ -4,10 +4,10 @@ pipeline {
 	tools {
 		maven 'maven 3.6'
 	}
-//
-//	environment {
-//		M2_INSTALL = "/home/gamut/Distros/apache-maven-3.6.0/bin/mvn"
-//	}
+
+	environment {
+		M2_INSTALL = "/home/gamutgurus/Distro/apache-maven-3.6.3/bin/mvn"
+	}
 
     stages {
 	stage('Clone-Repo') {
@@ -28,8 +28,8 @@ pipeline {
 	stage('Deployment') {
 	    	steps {
 			print "Deployment is done!"
-			sh 'sshpass -p "root" scp target/gamutgurus.war neeraj@172.17.0.6:/home/gamut/Distro/apache-tomcat-8.5.56/webapps'
-			sh 'sshpass -p "root" ssh neeraj@172.17.0.6 "JAVA_HOME=/home/gamut/Distro/jdk1.8.0_251" "/home/gamut/Distro/apache-tomcat-8.5.56/bin/startup.sh"'
+			sh 'sshpass -p "gamut" scp target/gamutgurus.war gamut@172.17.0.3:/home/gamut/distro/apache-tomcat-8.5.56/webapps'
+			sh 'sshpass -p "gamut" ssh gamut@172.17.0.3 "JAVA_HOME=/home/gamut/Distro/jdk1.8.0_251" "/home/gamut/distro/apache-tomcat-8.5.56/bin/startup.sh"'
 	    	}
 	}
     }
