@@ -5,9 +5,9 @@ pipeline {
 		maven 'maven 3.6'
 	}
 
-	environment {
-		M2_INSTALL = "/home/gamutgurus/Distro/apache-maven-3.6.3/bin/mvn"
-	}
+//	environment {
+//		M2_INSTALL = "/home/gamutgurus/Distro/apache-maven-3.6.3/bin/mvn"
+//	}
 
     stages {
 	stage('Clone-Repo') {
